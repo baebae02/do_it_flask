@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05d01256-2a79-456a-b2cf-7920cb1ef6cd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/myproject/pybo/templates/question/question_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/pybo/templates/question/question_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/migrations/versions/f8a39480b7a8_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/pybo/templates/auth/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/pybo/templates/form_errors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/pybo/views/auth_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/pybo.db" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/pybo.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/pybo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/pybo/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/pybo/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/pybo/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/pybo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/pybo/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/pybo/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/pybo/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/pybo/templates/question/question_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/pybo/templates/question/question_form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +37,15 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="28kGBHgnMyURND5TBtvX88L7FdY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -41,7 +55,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -60,7 +74,7 @@
       <workItem from="1651753034872" duration="10174000" />
       <workItem from="1653816854303" duration="293000" />
       <workItem from="1653817207919" duration="575000" />
-      <workItem from="1653817807340" duration="6228000" />
+      <workItem from="1653817807340" duration="8775000" />
     </task>
     <servers />
   </component>
@@ -77,5 +91,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
