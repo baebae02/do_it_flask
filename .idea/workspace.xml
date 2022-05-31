@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05d01256-2a79-456a-b2cf-7920cb1ef6cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/myproject/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/myproject/pybo/templates/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/pybo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/pybo/__init__.py" afterDir="false" />
     </list>
@@ -95,7 +97,7 @@
       <workItem from="1653817207919" duration="575000" />
       <workItem from="1653817807340" duration="15521000" />
       <workItem from="1653959071812" duration="435000" />
-      <workItem from="1653959512166" duration="12442000" />
+      <workItem from="1653959512166" duration="12506000" />
     </task>
     <servers />
   </component>
