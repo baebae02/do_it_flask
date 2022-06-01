@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05d01256-2a79-456a-b2cf-7920cb1ef6cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myproject/pybo/templates/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/pybo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/pybo/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo,db" beforeDir="false" afterPath="$PROJECT_DIR$/pybo,db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/pybo/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/templates/question/question_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/pybo/templates/question/question_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/views/answer_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pybo/views/answer_views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +57,7 @@
       <recent name="$PROJECT_DIR$/myproject/pybo/templates/question" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.myproject">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -75,6 +72,28 @@
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="myproject" type="PythonConfigurationType" factoryName="Python">
+      <module name="myproject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pybo/__init__.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -98,6 +117,7 @@
       <workItem from="1653817807340" duration="15521000" />
       <workItem from="1653959071812" duration="435000" />
       <workItem from="1653959512166" duration="12506000" />
+      <workItem from="1654059373297" duration="2627000" />
     </task>
     <servers />
   </component>
