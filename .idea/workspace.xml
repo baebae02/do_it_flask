@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="05d01256-2a79-456a-b2cf-7920cb1ef6cd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pybo,db" beforeDir="false" afterPath="$PROJECT_DIR$/pybo,db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pybo/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/pybo/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pybo/templates/question/question_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/pybo/templates/question/question_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pybo/views/answer_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pybo/views/answer_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/production.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +114,7 @@
       <workItem from="1653817807340" duration="15521000" />
       <workItem from="1653959071812" duration="435000" />
       <workItem from="1653959512166" duration="12506000" />
-      <workItem from="1654059373297" duration="2627000" />
+      <workItem from="1654059373297" duration="3296000" />
     </task>
     <servers />
   </component>
