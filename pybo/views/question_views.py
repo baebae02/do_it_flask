@@ -94,8 +94,6 @@ def _list():
                     sub_query.c.username.ilike(search)  # 답변작성자
                     ) \
             .distinct()
-    #serialize(pagination(query, default_sort, page=get_int('page'), limit=get_int('limit'), path='board'))
-    #return jsonify(question_list)
     question_list = question_list.paginate(page, per_page=10)
 
     def serialize(self):
@@ -109,9 +107,5 @@ def _list():
         }
     def obj_dict(obj):
         return obj.__dict__
-    # json_string = json.dumps(question_list.items, default=question_list.items)
-    print(question_list.items)
-    # print(json_string)
     return json.dumps({'question': [serialize(x) for x in question_list.items]}, default=str)
-    #return render_template('question/question_list.html', question_list=question_list, page=page, kw=kw)
 
