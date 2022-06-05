@@ -1,6 +1,7 @@
+import json
 from datetime import datetime
 
-from flask import Blueprint, render_template, request, url_for, g, flash
+from flask import Blueprint, render_template, request, url_for, g, flash, jsonify
 from werkzeug.utils import redirect
 from pybo import db
 from pybo.models import Question, Answer, User
@@ -10,14 +11,14 @@ from pybo.views.auth_views import login_required
 bp = Blueprint('question', __name__, url_prefix='/question')
 
 
-@bp.route('/detail/<int:question_id>/')
+@bp.route('/detail/<int:question_id>')
 def detail(question_id):
     question = Question.query.get_or_404(question_id)
     form = AnswerForm()
     return render_template('question/question_detail.html', question=question, form=form)
 
 
-@bp.route('/create/', methods=('GET', 'POST'))
+@bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
     form = QuestionForm()
@@ -62,7 +63,7 @@ def delete(question_id):
     return redirect(url_for('question._list'))
 
 
-@bp.route('/vote/<int:question_id>/')
+@bp.route('/vote/<int:question_id>')
 @login_required
 def vote(question_id):
     _question = Question.query.get_or_404(question_id)
@@ -93,5 +94,24 @@ def _list():
                     sub_query.c.username.ilike(search)  # 답변작성자
                     ) \
             .distinct()
+    #serialize(pagination(query, default_sort, page=get_int('page'), limit=get_int('limit'), path='board'))
+    #return jsonify(question_list)
     question_list = question_list.paginate(page, per_page=10)
-    return render_template('question/question_list.html', question_list=question_list, page=page, kw=kw)
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'subject': self.subject,
+            'content': self.content,
+            'create_date': self.create_date,
+            'user_id': self.user_id,
+            'modify_date': self.modify_date,
+        }
+    def obj_dict(obj):
+        return obj.__dict__
+    # json_string = json.dumps(question_list.items, default=question_list.items)
+    print(question_list.items)
+    # print(json_string)
+    return json.dumps({'question': [serialize(x) for x in question_list.items]}, default=str)
+    #return render_template('question/question_list.html', question_list=question_list, page=page, kw=kw)
+
