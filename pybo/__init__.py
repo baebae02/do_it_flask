@@ -3,7 +3,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from flaskext.markdown import Markdown
-
+from flask_cors import CORS
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -25,6 +25,10 @@ def page_not_found(e):
 
 def create_app():
     app = Flask(__name__)
+
+    #CORS
+    CORS(app)
+
     app.config.from_envvar('APP_CONFIG_FILE')
 
     # ORM
