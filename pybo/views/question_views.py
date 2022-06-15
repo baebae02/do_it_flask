@@ -11,25 +11,41 @@ from pybo.views.auth_views import login_required
 bp = Blueprint('question', __name__, url_prefix='/question')
 
 
+def serialize(self):
+    return {
+        'id': self.id,
+        'subject': self.subject,
+        'content': self.content,
+        'create_date': self.create_date,
+        'user_id': self.user_id,
+        'modify_date': self.modify_date,
+    }
+
+
 @bp.route('/detail/<int:question_id>')
 def detail(question_id):
     question = Question.query.get_or_404(question_id)
-    form = AnswerForm()
-    return render_template('question/question_detail.html', question=question, form=form)
+    #form = AnswerForm()
+    return json.dumps({'question': serialize(question)}, default=str)
 
 
-@bp.route('/create', methods=('GET', 'POST'))
+@bp.route('/create', methods=['POST'])
 @login_required
 def create():
-    form = QuestionForm()
-    if request.method == 'POST' and form.validate_on_submit():
-        question = Question(subject=form.subject.data, content=form.content.data,
-                            create_date=datetime.now(), user=g.user)
-        db.session.add(question)
-        db.session.commit()
-        return redirect(url_for('main.index'))
-
-    return render_template('question/question_form.html', form=form)
+    #form = QuestionForm()
+    data = request.get_json()
+    print(data)
+    question = Question(
+        subject=data['subject'],
+        content=data['content'],
+        create_date=datetime.now(),
+        user_id=g.user.id,
+        user=g.user
+    )
+    db.session.add(question)
+    db.session.commit()
+    return json.dumps({'question': serialize(question)})
+    #return render_template('question/question_form.html', form=form)
 
 
 @bp.route('/modify/<int:question_id>', methods=('GET', 'POST'))
@@ -95,17 +111,4 @@ def _list():
                     ) \
             .distinct()
     question_list = question_list.paginate(page, per_page=10)
-
-    def serialize(self):
-        return {
-            'id': self.id,
-            'subject': self.subject,
-            'content': self.content,
-            'create_date': self.create_date,
-            'user_id': self.user_id,
-            'modify_date': self.modify_date,
-        }
-    def obj_dict(obj):
-        return obj.__dict__
     return json.dumps({'question': [serialize(x) for x in question_list.items]}, default=str)
-

@@ -1,8 +1,10 @@
 import functools
-
+import json
 from flask import Blueprint, request, redirect, url_for, flash, render_template, session, g
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from werkzeug.exceptions import (
+    Unauthorized, Forbidden, NotFound, BadRequest, Conflict
+)
 from pybo import db
 from pybo.forms import UserCreateForm, UserLoginForm
 from pybo.models import User
@@ -10,10 +12,10 @@ from pybo.models import User
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 
-@bp.route('/signup/', methods=('GET', 'POST'))
+@bp.route('/signup', methods=['POST'])
 def signup():
     form = UserCreateForm()
-    if request.method == 'POST' and form.validate_on_submit():
+    if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if not user:
             user = User(username=form.username.data,
@@ -21,10 +23,11 @@ def signup():
                         email=form.email.data)
             db.session.add(user)
             db.session.commit()
-            return redirect(url_for('main.index'))
+            return json.dumps({'user_id': user.user_id, 'user_name': user.username})
         else:
             flash('이미 존재하는 사용자입니다.')
-    return render_template('auth/signup.html', form=form)
+            raise Conflict
+    raise BadRequest
 
 
 @bp.route('/login/', methods=('GET', 'POST'))
