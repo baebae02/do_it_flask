@@ -13,11 +13,14 @@ class AnswerForm(FlaskForm):
 
 
 class UserCreateForm(FlaskForm):
-    username = StringField('사용자이름', validators=[DataRequired(), Length(min=3, max=25)])
+    username = StringField('사용자이름', validators=[DataRequired(), Length(min=2, max=10)])
     password1 = PasswordField('비밀번호', validators=[
         DataRequired(), EqualTo('password2', '비밀번호가 일치하지 않습니다.')])
     password2 = PasswordField('비밀번호 확인', validators=[DataRequired()])
+    nickname = StringField('아이디', validators=[DataRequired(), Length(min=3, max=25)])
     email = EmailField('이메일', validators=[DataRequired(), Email()])
+    phone = StringField('전화번호', validators=[DataRequired(), Length(11)])
+    baekjoon = StringField('백준아이디', validators=[DataRequired()])
 
 
 class UserLoginForm(FlaskForm):

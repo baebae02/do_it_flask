@@ -91,7 +91,7 @@ def vote(question_id):
     return redirect(url_for('question.detail', question_id=question_id))
 
 
-@bp.route('/list/')
+@bp.route('/list')
 def _list():
     page = request.args.get('page', type=int, default=1)
     kw = request.args.get('kw', type=str, default='')

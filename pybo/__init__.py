@@ -27,7 +27,7 @@ def create_app():
     app = Flask(__name__)
 
     #CORS
-    CORS(app)
+    CORS(app, resources={r'*': {'origins': '*'}})
 
     app.config.from_envvar('APP_CONFIG_FILE')
 
