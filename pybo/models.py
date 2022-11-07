@@ -39,9 +39,41 @@ class Answer(db.Model):
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
-    nickname = db.Column(db.String(150), nullable=False)
+    nickname = db.Column(db.String(150), nullable=False, server_default='1')
     password = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     baekjoon = db.Column(db.String(120), unique=True, nullable=True)
     phone = db.Column(db.String(20), unique=True, nullable=False)
 
+
+# class CreditUser(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     nickname = db.Column(db.String(20), nullable=False)
+#     major_code = db.Column(db.Integer(4), nullable=False)
+#     created_at = db.Column(db.DateTime(), nullable=False)
+#
+#
+# class UserCreditFile(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('CreditUser.id', ondelete='CASCADE'), nullable=False)
+#     name = db.Column(db.String(100), nullable=False)
+#     link = db.Column(db.String(300), nullable=False)
+
+
+class Major(db.Model):
+    code = db.Column(db.Integer, primary_key=True)
+    dept_nm = db.Column(db.String(100), nullable=False)
+    up_nm = db.Column(db.String(100), nullable=False)
+    up_code = db.Column(db.String(100), nullable=True)
+    colg = db.Column(db.Integer, nullable=True)
+
+
+# class MajorCredit(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     major_code = db.Column(db.Integer, primary_key=True)
+#     min_graduate = db.Column(db.Integer(30), nullable=True)
+#     elective_total = db.Column(db.Integer(30), nullable=True)
+#     elective_mandatory = db.Column(db.Integer(30), nullable=True)
+#     elective_optional = db.Column(db.Integer(30), nullable=True)
+#     core_total = db.Column(db.Integer(30), nullable=True)
+#     core_mandatory = db.Column(db.Integer(30), nullable=True)
