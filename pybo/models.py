@@ -45,3 +45,10 @@ class User(db.Model):
     baekjoon = db.Column(db.String(120), unique=True, nullable=True)
     phone = db.Column(db.String(20), unique=True, nullable=False)
 
+
+class Major(db.Model):
+    code = db.Column(db.Integer, primary_key=True)
+    dept_nm = db.Column(db.String(100), nullable=False)
+    up_nm = db.Column(db.String(100), nullable=False)
+    up_code = db.Column(db.String(100), nullable=True)
+    colg = db.Column(db.Integer, nullable=True)
