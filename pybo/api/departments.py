@@ -31,6 +31,7 @@ print(subDeptList)
 depts = dict()
 for list_ in subDeptList:
     for col in list_:
+        print(col)
         # 학과 코드
         if col.tag == 'dept':
             dept = col.text
@@ -57,9 +58,19 @@ for list_ in subDeptList:
     dept_info['dept_div'] = dept_div
     dept_info['colg'] = colg
 
-    if 210 <= int(dept_info['div']) <= 221:
-        depts[f'{dept}'] = dept_info
+    if 210 <= int(dept_info['dept_div']) < 221:
+        if '대학' in dept_info['up_nm']:
+            depts[f'{dept}'] = dept_info
     print()
 
-with open(f'departments-{YEAR}{TERM}', 'wt') as f:
+# 파일 생성
+with open(f'departments-{YEAR}{TERM}.json', 'wt') as f:
     f.write(json.dumps(depts, ensure_ascii=False))
+
+for i in depts:
+    print(depts[i])
+    dept = Major(code=depts[i]['code'], dept_nm=depts[i]['dept_nm'], up_nm=depts[i]['up_nm'], up_code=depts[i]['up_dept'], colg=depts[i]['colg'])
+    db.session.add(dept)
+
+db.session.commit()
+
