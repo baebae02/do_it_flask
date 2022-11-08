@@ -56,5 +56,8 @@ def create_app():
 
     # 오류페이지
     app.register_error_handler(404, page_not_found)
-
+    
+    # 에러
+    with app.app_context():
+        db.create_all()
     return app

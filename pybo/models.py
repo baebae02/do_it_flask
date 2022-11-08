@@ -47,8 +47,9 @@ class User(db.Model):
 
 
 class Major(db.Model):
-    code = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.String(100), unique=True, nullable=False)
     dept_nm = db.Column(db.String(100), nullable=False)
     up_nm = db.Column(db.String(100), nullable=False)
     up_code = db.Column(db.String(100), nullable=True)
-    colg = db.Column(db.Integer, nullable=True)
+    colg = db.Column(db.String(100), nullable=True)
