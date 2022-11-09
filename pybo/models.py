@@ -57,6 +57,7 @@ class Major(db.Model):
 
 class CreditUser(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    major = db.relationship('Major')
     nickname = db.Column(db.String(100), nullable=False)
     major_code = db.Column(db.String, db.ForeignKey('major.code'), nullable=False)
-
+    password = db.Column(db.String(100), nullable=True)
