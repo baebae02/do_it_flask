@@ -47,9 +47,16 @@ class User(db.Model):
 
 
 class Major(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    code = db.Column(db.String(100), unique=True, nullable=False)
+    id = db.Column(db.Integer)
+    code = db.Column(db.String(100), primary_key=True, unique=True, nullable=False)
     dept_nm = db.Column(db.String(100), nullable=False)
     up_nm = db.Column(db.String(100), nullable=False)
     up_code = db.Column(db.String(100), nullable=True)
     colg = db.Column(db.String(100), nullable=True)
+
+
+class CreditUser(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nickname = db.Column(db.String(100), nullable=False)
+    major_code = db.Column(db.String, db.ForeignKey('major.code'), nullable=False)
+
