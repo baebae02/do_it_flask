@@ -1,4 +1,4 @@
-from flask import jsonify, request, Blueprint, url_for, render_template, current_app
+from flask import Response, jsonify, request, Blueprint, url_for, render_template, current_app
 from werkzeug.utils import redirect
 from pybo.models import Major, CreditUser
 from pybo import db
@@ -50,7 +50,7 @@ def search():
     return json.dumps({'result': [x.dept_nm for x in department_list]},ensure_ascii=False, default=str).encode('utf8')
 
 
-@bp.route('/credit_login')
+@bp.route('/credit_signin', methods=['POST'])
 def credit_login():
     nickname = request.args.get('nickname', type=str, default='')
     major_req = request.args.get('major', type=str, default='')
@@ -70,4 +70,19 @@ def credit_login():
             return {'err': '잘못된 학과명입니다.'}
     db.session.commit()
     return { 'success' : '회원가입이 성공적으로 완료되었습니다'}
+
+
+@bp.route('/credit_login', methods=['GET'])
+def credit_signin():
+    nickname = request.args.get('nickname', type=str, default='')
+    password = request.args.get('password', type=str, default='')
+
+    user = CreditUser.query.filter_by(nickname = nickname).first()
+    if user:
+        if user.password == password:
+            return { 'msg' : '로그인에 성공했습니다', 'status' : 200 }
+        else:
+            return { 'msg' : '로그인에 실패했습니다', 'status' : 400 }
+    else:
+        return { 'msg' : '해당 유저가 존재하지 않습니다', 'status' : 404 }
 
