@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import requests
 import time 
+import macro_config as mc
 
 def all_cookies(url):
   chrome_options = webdriver.ChromeOptions()
@@ -19,14 +20,16 @@ def all_cookies(url):
 
   current_url = driver.current_url
   sw = -1
-  while sw:
-    question = input('/ID와 PW 입력하셨나요?')
-    if question == 'y':
-      sw = 0
-      break
-    else:
-     print("y입력하세요!!")
+  # while sw:
+  #   question = input('/ID와 PW 입력하셨나요?')
+  #   if question == 'y':
+  #     sw = 0
+  #     break
+  #   else:
+  #    print("y입력하세요!!")
 
+  driver.find_element(By.ID, 'id').send_keys(mc.portal_id)  # ID
+  driver.find_element(By.ID, 'pw').send_keys(mc.portal_pw)  # PW
   driver.find_element(By.CLASS_NAME, "btn_login").click()
   all_cookies = driver.get_cookies()
   print("=====================================")
