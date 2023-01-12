@@ -46,34 +46,18 @@ class User(db.Model):
     phone = db.Column(db.String(20), unique=True, nullable=False)
 
 
-# class CreditUser(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     nickname = db.Column(db.String(20), nullable=False)
-#     major_code = db.Column(db.Integer(4), nullable=False)
-#     created_at = db.Column(db.DateTime(), nullable=False)
-#
-#
-# class UserCreditFile(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     user_id = db.Column(db.Integer, db.ForeignKey('CreditUser.id', ondelete='CASCADE'), nullable=False)
-#     name = db.Column(db.String(100), nullable=False)
-#     link = db.Column(db.String(300), nullable=False)
-
-
 class Major(db.Model):
-    code = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer)
+    code = db.Column(db.String(100), primary_key=True, unique=True, nullable=False)
     dept_nm = db.Column(db.String(100), nullable=False)
     up_nm = db.Column(db.String(100), nullable=False)
     up_code = db.Column(db.String(100), nullable=True)
-    colg = db.Column(db.Integer, nullable=True)
+    colg = db.Column(db.String(100), nullable=True)
 
 
-# class MajorCredit(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     major_code = db.Column(db.Integer, primary_key=True)
-#     min_graduate = db.Column(db.Integer(30), nullable=True)
-#     elective_total = db.Column(db.Integer(30), nullable=True)
-#     elective_mandatory = db.Column(db.Integer(30), nullable=True)
-#     elective_optional = db.Column(db.Integer(30), nullable=True)
-#     core_total = db.Column(db.Integer(30), nullable=True)
-#     core_mandatory = db.Column(db.Integer(30), nullable=True)
+class CreditUser(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    major = db.relationship('Major')
+    nickname = db.Column(db.String(100), nullable=False)
+    major_code = db.Column(db.String, db.ForeignKey('major.code'), nullable=False)
+    password = db.Column(db.String(100), nullable=True)
