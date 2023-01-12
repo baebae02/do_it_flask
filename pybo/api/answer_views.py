@@ -6,7 +6,7 @@ from werkzeug.utils import redirect
 from pybo import db
 from pybo.forms import AnswerForm
 from pybo.models import Question, Answer
-from pybo.views.auth_views import login_required
+from pybo.api.auth_views import login_required
 
 bp = Blueprint('answer', __name__, url_prefix='/answer')
 
